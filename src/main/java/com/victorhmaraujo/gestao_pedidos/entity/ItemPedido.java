@@ -23,6 +23,12 @@ public class ItemPedido {
     private Integer quantidade;
     private BigDecimal precoUnitario;
 
+    @ManyToOne
+    private Pedido pedido;
+
+    @ManyToOne
+    private Produto produto;
+
     public BigDecimal calcularSubTotal(){
 
         return null;

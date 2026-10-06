@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Getter
 @Setter
@@ -24,5 +25,8 @@ public class Produto {
     private String descricao;
     private BigDecimal preco;
     private Integer quantidadeEstoque;
+
+    @OneToMany(mappedBy = "produto")
+    private List<ItemPedido> itens;
 
 }

@@ -9,6 +9,7 @@ import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Getter
 @Setter
@@ -25,6 +26,9 @@ public class Pedido {
     private LocalDateTime dataPedido;
     private StatusPedido status;
     private BigDecimal valorTotal;
+
+    @OneToMany(mappedBy = "pedido")
+    private List<ItemPedido> itens;
 
     public BigDecimal calcularTotal(){
 
