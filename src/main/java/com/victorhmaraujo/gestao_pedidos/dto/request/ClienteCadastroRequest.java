@@ -1,6 +1,5 @@
-package com.victorhmaraujo.gestao_pedidos.entity;
+package com.victorhmaraujo.gestao_pedidos.dto.request;
 
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -11,21 +10,14 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
-@Table(name = "Cliente")
-public class Cliente {
+public class ClienteCadastroRequest {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+    @NotBlank
     private String nome;
 
     @NotBlank
-    @Column(unique = true)
     private String email;
 
     @NotBlank
-    @Column(unique = true, length = 11)
     private String cpf;
 }
