@@ -30,7 +30,6 @@ public class ItemPedido {
     private Produto produto;
 
     public BigDecimal calcularSubTotal(){
-
-        return null;
+        return this.precoUnitario.multiply(BigDecimal.valueOf(quantidade));
     }
 }

@@ -30,8 +30,13 @@ public class Pedido {
     @OneToMany(mappedBy = "pedido")
     private List<ItemPedido> itens;
 
-    public BigDecimal calcularTotal(){
+    public BigDecimal calcularTotal() {
+        BigDecimal total = BigDecimal.ZERO;
 
-        return null;
+        for (ItemPedido item : this.itens) {
+            total = total.add(item.calcularSubTotal());
+        }
+
+        return total;
     }
 }
