@@ -31,4 +31,14 @@ public class ClienteService {
         return "Cliente cadastrado com sucesso!";
 
     }
+
+    public String deletarCliente(Long id){
+
+        Cliente cliente = database.findById(id).orElse(null);
+        if(cliente == null) return "Esse cliente não existe!";
+        if(!cliente.getPedidos().isEmpty()) return "Esse cliente possui pedidos, e não pode ser removido!";
+
+        database.delete(cliente);
+        return "Cliente removido!";
+    }
 }

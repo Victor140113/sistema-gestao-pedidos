@@ -4,12 +4,7 @@ import com.victorhmaraujo.gestao_pedidos.dto.request.ClienteCadastroRequest;
 import com.victorhmaraujo.gestao_pedidos.service.ClienteService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.Optional;
+import org.springframework.web.bind.annotation.*;
 
 @AllArgsConstructor
 @RestController
@@ -22,6 +17,12 @@ public class ClienteController {
     public String cadastrarCliente(@Valid @RequestBody ClienteCadastroRequest data) {
 
         return service.cadastrarCliente(data);
+    }
+
+    @DeleteMapping("{id}")
+    public String deletarCliente(@PathVariable Long id){
+
+        return service.deletarCliente(id);
     }
 
 }
