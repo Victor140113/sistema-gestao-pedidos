@@ -41,4 +41,11 @@ public class ClienteService {
         database.delete(cliente);
         return "Cliente removido!";
     }
+
+
+    // Métodos Internos
+
+    public Cliente getClienteById(Long id){
+        return database.findById(id).orElse(null);
+    }
 }

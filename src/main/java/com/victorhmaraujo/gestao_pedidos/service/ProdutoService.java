@@ -31,4 +31,10 @@ public class ProdutoService {
 
         return "Produto cadastrado com sucesso!";
     }
+
+    // Métodos internos
+
+    public Produto getProdutoById(Long id){
+        return database.findById(id).orElse(null);
+    }
 }

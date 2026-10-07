@@ -29,6 +29,12 @@ public class ItemPedido {
     @ManyToOne
     private Produto produto;
 
+    public ItemPedido(Produto produto, Integer quantidade, Pedido pedido){
+        this.produto = produto;
+        this.quantidade = quantidade;
+        this.pedido = pedido;
+    }
+
     public BigDecimal calcularSubTotal(){
         return this.precoUnitario.multiply(BigDecimal.valueOf(quantidade));
     }

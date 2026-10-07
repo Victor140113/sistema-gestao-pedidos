@@ -30,7 +30,7 @@ public class Pedido {
     @ManyToOne
     private Cliente donoPedido;
 
-    @OneToMany(mappedBy = "pedido")
+    @OneToMany(mappedBy = "pedido", cascade = CascadeType.PERSIST)
     private List<ItemPedido> itens;
 
     public BigDecimal calcularTotal() {
