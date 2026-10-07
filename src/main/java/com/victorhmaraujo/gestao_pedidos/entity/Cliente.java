@@ -32,7 +32,6 @@ public class Cliente {
     @Column(unique = true, length = 11)
     private String cpf;
 
-    @NotNull
     @OneToMany(mappedBy = "donoPedido")
     private List<Pedido> pedidos;
 }
