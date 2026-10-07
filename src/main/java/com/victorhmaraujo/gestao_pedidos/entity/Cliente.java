@@ -2,10 +2,13 @@ package com.victorhmaraujo.gestao_pedidos.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -28,4 +31,8 @@ public class Cliente {
     @NotBlank
     @Column(unique = true, length = 11)
     private String cpf;
+
+    @NotNull
+    @OneToMany(mappedBy = "donoPedido")
+    private List<Pedido> pedidos;
 }

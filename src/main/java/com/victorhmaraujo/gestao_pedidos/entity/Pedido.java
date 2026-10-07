@@ -27,6 +27,9 @@ public class Pedido {
     private StatusPedido status = StatusPedido.PENDENTE;
     private BigDecimal valorTotal;
 
+    @ManyToOne
+    private Cliente donoPedido;
+
     @OneToMany(mappedBy = "pedido")
     private List<ItemPedido> itens;
 
