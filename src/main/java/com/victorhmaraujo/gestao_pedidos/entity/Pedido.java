@@ -24,7 +24,7 @@ public class Pedido {
     private Long id;
 
     private LocalDateTime dataPedido;
-    private StatusPedido status;
+    private StatusPedido status = StatusPedido.PENDENTE;
     private BigDecimal valorTotal;
 
     @OneToMany(mappedBy = "pedido")
