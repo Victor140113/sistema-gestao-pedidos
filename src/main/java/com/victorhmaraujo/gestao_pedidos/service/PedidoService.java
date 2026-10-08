@@ -32,7 +32,7 @@ public class PedidoService {
         for(ProdutoRequest produto : data.getItens()){
 
             Produto produtoBanco = produtoService.getProdutoById(produto.getId());
-            listaItens.add(new ItemPedido(produtoBanco, produto.getQuantidade(), novoPedido));
+            listaItens.add(new ItemPedido(produtoBanco, produto.getQuantidade(), novoPedido, produtoBanco.getPreco()));
         }
 
         novoPedido.setItens(listaItens);
