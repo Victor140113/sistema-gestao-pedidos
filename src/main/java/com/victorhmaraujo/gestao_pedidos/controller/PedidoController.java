@@ -1,12 +1,15 @@
 package com.victorhmaraujo.gestao_pedidos.controller;
 
 import com.victorhmaraujo.gestao_pedidos.dto.request.PedidoCriarRequest;
+import com.victorhmaraujo.gestao_pedidos.dto.response.PedidoResponse;
 import com.victorhmaraujo.gestao_pedidos.service.PedidoService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @AllArgsConstructor
 @RestController
@@ -21,5 +24,12 @@ public class PedidoController {
     @PostMapping
     public String criarPedido(@RequestBody PedidoCriarRequest data){
         return service.criarPedido(data);
+    }
+
+    @Operation(summary = "Lista todos os pedidos", description = "Lista todos os pedidos de determinado cliente")
+    @GetMapping("{clienteId}")
+    public List<PedidoResponse> listarPedidos(@PathVariable Long clienteId){
+
+        return service.listarPedidos(clienteId);
     }
 }

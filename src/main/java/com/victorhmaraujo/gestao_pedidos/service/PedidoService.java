@@ -2,6 +2,7 @@ package com.victorhmaraujo.gestao_pedidos.service;
 
 import com.victorhmaraujo.gestao_pedidos.dto.request.PedidoCriarRequest;
 import com.victorhmaraujo.gestao_pedidos.dto.request.ProdutoRequest;
+import com.victorhmaraujo.gestao_pedidos.dto.response.PedidoResponse;
 import com.victorhmaraujo.gestao_pedidos.entity.Cliente;
 import com.victorhmaraujo.gestao_pedidos.entity.ItemPedido;
 import com.victorhmaraujo.gestao_pedidos.entity.Pedido;
@@ -40,5 +41,11 @@ public class PedidoService {
         database.save(novoPedido);
 
         return "Pedido criado com sucesso!";
+    }
+
+    public List<PedidoResponse> listarPedidos(Long clienteId){
+
+        Cliente donoPedido = clienteService.getClienteById(clienteId);
+        return database.findAllByDonoPedido(donoPedido).stream().map( pedido -> new PedidoResponse(pedido.getDataPedido(), pedido.getStatus(), pedido.getValorTotal())).toList();
     }
 }
