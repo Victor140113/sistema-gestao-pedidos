@@ -17,14 +17,14 @@ import java.math.BigDecimal;
 @AllArgsConstructor
 public class ProdutoCadastroRequest {
 
-    @NotBlank
+    @NotBlank(message = "O nome do produto é obrigatório!")
     private String nome;
 
-    @NotNull
-    @Positive
+    @NotNull(message = "O preço não pode estar vazio!")
+    @Positive(message = "O preço precisa ser positivo!")
     private BigDecimal preco;
 
-    @NotNull
-    @PositiveOrZero
+    @NotNull(message = "A quantidade não pode estar vazia!")
+    @PositiveOrZero(message = "A quantidade não pode ser menor do que 0!")
     private Integer quantidadeEstoque;
 }

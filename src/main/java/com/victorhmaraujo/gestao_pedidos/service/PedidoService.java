@@ -7,6 +7,7 @@ import com.victorhmaraujo.gestao_pedidos.entity.Cliente;
 import com.victorhmaraujo.gestao_pedidos.entity.ItemPedido;
 import com.victorhmaraujo.gestao_pedidos.entity.Pedido;
 import com.victorhmaraujo.gestao_pedidos.entity.Produto;
+import com.victorhmaraujo.gestao_pedidos.exception.ResourceNotFoundException;
 import com.victorhmaraujo.gestao_pedidos.repository.PedidoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -25,7 +26,7 @@ public class PedidoService {
     public String criarPedido(PedidoCriarRequest data){
 
         Cliente donoPedido = clienteService.getClienteById(data.getDonoId());
-        if (donoPedido == null) return "Cliente não cadastrado";
+        if (donoPedido == null) throw new ResourceNotFoundException("O dono do pedido não existe!");
 
         Pedido novoPedido = new Pedido();
         List<ItemPedido> listaItens = new ArrayList<>();

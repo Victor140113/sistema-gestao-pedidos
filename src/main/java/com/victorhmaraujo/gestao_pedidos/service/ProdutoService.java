@@ -2,6 +2,7 @@ package com.victorhmaraujo.gestao_pedidos.service;
 
 import com.victorhmaraujo.gestao_pedidos.dto.request.ProdutoCadastroRequest;
 import com.victorhmaraujo.gestao_pedidos.entity.Produto;
+import com.victorhmaraujo.gestao_pedidos.exception.ResourceAlreadyExistsException;
 import com.victorhmaraujo.gestao_pedidos.repository.ProdutoRepository;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,7 +20,7 @@ public class ProdutoService {
     public String cadastrarProduto(ProdutoCadastroRequest data){
 
         if(database.existsByNome(data.getNome())){
-            return "O produto já existe!";
+            throw new ResourceAlreadyExistsException("O Produto já existe!");
         }
 
         Produto novoProduto = new Produto();
