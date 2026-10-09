@@ -18,7 +18,7 @@ public class ClienteController {
 
     private final ClienteService service;
 
-    @Operation(summary = "Cadastra um cliente", description = "Cadastra um cliente com os dados fornecidos")
+    @Operation(summary = "Cadastra um cliente", description = "Cadastra um cliente com os dados fornecidos.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Cliente cadastrado com sucesso!"),
             @ApiResponse(responseCode = "400", description = "Dados do cliente inválidos!"),
@@ -30,7 +30,7 @@ public class ClienteController {
         return service.cadastrarCliente(data);
     }
 
-    @Operation(summary = "Remove um cliente", description = "Remove um cliente da base de dados, caso não haja pedidos vinculados a ele")
+    @Operation(summary = "Remove um cliente", description = "Remove um cliente da base de dados, caso não haja pedidos vinculados a ele.")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Cliente deletado com sucesso!"),
             @ApiResponse(responseCode = "404", description = "Cliente não encontrado!"),
