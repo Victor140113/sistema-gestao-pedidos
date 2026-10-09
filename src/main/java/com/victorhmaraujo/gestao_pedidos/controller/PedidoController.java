@@ -8,6 +8,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -26,15 +27,15 @@ public class PedidoController {
             @ApiResponse(responseCode = "404", description = "O dono do pedido não existe!")
     })
     @PostMapping
-    public String criarPedido(@RequestBody PedidoCriarRequest data){
-        return service.criarPedido(data);
+    public ResponseEntity<String> criarPedido(@RequestBody PedidoCriarRequest data){
+        return ResponseEntity.status(201).body(service.criarPedido(data));
     }
 
     @Operation(summary = "Lista todos os pedidos", description = "Lista todos os pedidos de determinado cliente")
     @ApiResponse(responseCode = "200", description = "Lista de pedidos devolvida!")
     @GetMapping("{clienteId}")
-    public List<PedidoResponse> listarPedidos(@PathVariable Long clienteId){
+    public ResponseEntity<List<PedidoResponse>> listarPedidos(@PathVariable Long clienteId){
 
-        return service.listarPedidos(clienteId);
+        return ResponseEntity.status(200).body(service.listarPedidos(clienteId));
     }
 }

@@ -10,6 +10,7 @@ import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,9 +32,9 @@ public class ProdutoController {
             @ApiResponse(responseCode = "409", description = "O produto já existe!")
     })
     @PostMapping("/cadastro")
-    public String cadastrarProduto(@Valid @RequestBody ProdutoCadastroRequest data){
+    public ResponseEntity<String> cadastrarProduto(@Valid @RequestBody ProdutoCadastroRequest data){
 
-        return service.cadastrarProduto(data);
+        return ResponseEntity.status(201).body(service.cadastrarProduto(data));
     }
 
 }
