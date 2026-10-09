@@ -7,6 +7,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,7 +28,7 @@ public class PedidoController {
             @ApiResponse(responseCode = "404", description = "O dono do pedido não existe!")
     })
     @PostMapping
-    public ResponseEntity<String> criarPedido(@RequestBody PedidoCriarRequest data){
+    public ResponseEntity<String> criarPedido(@Valid @RequestBody PedidoCriarRequest data){
         return ResponseEntity.status(201).body(service.criarPedido(data));
     }
 
