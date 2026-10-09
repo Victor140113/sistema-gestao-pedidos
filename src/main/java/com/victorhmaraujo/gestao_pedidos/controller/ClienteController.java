@@ -25,7 +25,7 @@ public class ClienteController {
             @ApiResponse(responseCode = "400", description = "Dados do cliente inválidos!"),
             @ApiResponse(responseCode = "409", description = "O mesmo item não pode ser cadastrado!")
     })
-    @PostMapping("/cadastro")
+    @PostMapping
     public ResponseEntity<String> cadastrarCliente(@Valid @RequestBody ClienteCadastroRequest data) {
 
         return ResponseEntity.status(201).body(service.cadastrarCliente(data));

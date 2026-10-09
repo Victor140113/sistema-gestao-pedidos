@@ -17,7 +17,7 @@ import java.util.List;
 @AllArgsConstructor
 @RestController
 @Tag(name = "Pedidos", description = "Endpoints de gerenciamento de pedidos")
-@RequestMapping("/pedido")
+@RequestMapping("/pedidos")
 public class PedidoController {
 
     private final PedidoService service;

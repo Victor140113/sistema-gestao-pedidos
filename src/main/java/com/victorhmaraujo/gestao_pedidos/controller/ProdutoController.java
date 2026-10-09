@@ -31,7 +31,7 @@ public class ProdutoController {
             @ApiResponse(responseCode = "201", description = "Produto cadastrado com sucesso!"),
             @ApiResponse(responseCode = "409", description = "O produto já existe!")
     })
-    @PostMapping("/cadastro")
+    @PostMapping
     public ResponseEntity<String> cadastrarProduto(@Valid @RequestBody ProdutoCadastroRequest data){
 
         return ResponseEntity.status(201).body(service.cadastrarProduto(data));
