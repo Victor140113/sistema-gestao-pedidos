@@ -28,7 +28,7 @@ public class ProdutoController {
 
     @Operation(summary = "Cadastra um novo produto", description = "Cadastra um novo produto com os dados fornecidos")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Produto cadastrado com sucesso!"),
+            @ApiResponse(responseCode = "201", description = "Produto cadastrado com sucesso!"),
             @ApiResponse(responseCode = "409", description = "O produto já existe!")
     })
     @PostMapping("/cadastro")

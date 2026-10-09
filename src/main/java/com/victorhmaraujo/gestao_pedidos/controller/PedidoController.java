@@ -23,7 +23,7 @@ public class PedidoController {
 
     @Operation(summary = "Cria pedidos", description = "Cria pedidos com os dados fornecidos")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Pedido criado com sucesso!"),
+            @ApiResponse(responseCode = "201", description = "Pedido criado com sucesso!"),
             @ApiResponse(responseCode = "404", description = "O dono do pedido não existe!")
     })
     @PostMapping

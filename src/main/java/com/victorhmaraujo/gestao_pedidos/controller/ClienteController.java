@@ -21,7 +21,7 @@ public class ClienteController {
 
     @Operation(summary = "Cadastra um cliente", description = "Cadastra um cliente com os dados fornecidos.")
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Cliente cadastrado com sucesso!"),
+            @ApiResponse(responseCode = "201", description = "Cliente cadastrado com sucesso!"),
             @ApiResponse(responseCode = "400", description = "Dados do cliente inválidos!"),
             @ApiResponse(responseCode = "409", description = "O mesmo item não pode ser cadastrado!")
     })
